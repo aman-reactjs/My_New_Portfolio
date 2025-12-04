@@ -1,82 +1,161 @@
 "use client";
-import React, { useState } from "react";
-import { Menu } from "lucide-react";
-// import Image from "next/image";
+import React, { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
-const Navbar = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+interface NavLink {
+  name: string;
+  href: string;
+  highlight?: boolean;
+}
 
-  const navLinks = [
-    "Home",
-    "Products",
-    "Solutions",
-    "Pricing",
-    "Blog",
-    "Support",
-    "About",
+const Navbar: React.FC = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
+  const [scrolled, setScrolled] = useState<boolean>(false);
+
+  // Detect scroll for navbar styling
+  useEffect(() => {
+    const handleScroll = (): void => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Close mobile menu on window resize
+  useEffect(() => {
+    const handleResize = (): void => {
+      if (window.innerWidth >= 1024) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const navLinks: NavLink[] = [
+    { name: "Home", href: "#home", highlight: true },
+    { name: "Products", href: "#products" },
+    { name: "Resume", href: "#resume" },
+    { name: "Content", href: "#content" },
+    { name: "Blog", href: "#blog" },
+    { name: "Support", href: "#support" },
+    { name: "About", href: "#about" },
   ];
 
-  return (
-    <nav className="w-full bg-transparent py-1 px-4">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-        {/* Left Section */}
-        <div className="flex items-center justify-between w-full md:w-[600px] bg-[#ebedf0] dark:bg-[#0e1218] px-4 md:px-6 py-1 rounded-[12px] shadow border-gray-400 dark:border-gray-700 border-2">
-          <div className="flex items-center space-x-6">
-            {/* Logo */}
-            <div className="pr-4 border-r border-gray-300 dark:border-gray-600">
-              {/* <Image
-                src="https://www.everythingtalent.ai/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Facme-logo-dark.d4da7bf2.png&w=48&q=75"
-                alt="Logo"
-                width="48"
-                height="48"
-                className="h-9 w-auto"
-              /> */}
-            </div>
+  const handleLinkClick = (): void => {
+    setIsMobileMenuOpen(false);
+  };
 
-            {/* Desktop Links */}
-            <ul className="hidden lg:flex space-x-6 text-sm font-medium text-gray-700 dark:text-white">
-              {navLinks.map((link) => (
-                <li
-                  key={link}
-                  className={`hover:text-purple-500 transition ${
-                    link === "Blog" ? "text-fuchsia-600 font-semibold" : ""
+  const toggleMobileMenu = (): void => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  return (
+    <nav
+      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-gray-900/95 backdrop-blur-lg shadow-lg"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 lg:h-20">
+          {/* Logo Section */}
+          <div className="shrink-0 z-50 ">
+            <a href="./" className="block">
+              <Image
+                src="/my_logo/Aman_logo2.png"
+                alt="Aman Logo"
+                width={600}
+                height={400}
+                className="h-20 w-auto sm:h-30 lg:h-40 object-contain"
+              />
+            </a>
+          </div>
+
+          {/* Desktop Navigation Links */}
+          <div className="hidden lg:flex items-center space-x-1">
+            {navLinks.map((link: NavLink) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className={
+                  "px-4 py-2 text-sm font-medium transition-all duration-300 relative group text-gray-300 hover:text-white"
+                }
+              >
+                {link.name}
+                {/* <span
+                  className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r transition-all duration-300 ${
+                    link.highlight
+                      ? "from-fuchsia-500 to-purple-500 w-full"
+                      : "from-cyan-400 to-blue-500 w-0 group-hover:w-full"
                   }`}
-                >
-                  <a href="#">{link}</a>
-                </li>
-              ))}
-            </ul>
+                ></span> */}
+
+                <span
+                  className={`absolute bottom-0 left-0 h-0.5 bg-linear-to-r via-fuchsia-500 to-purple-500 transition-all duration-300 ${
+                    link.highlight
+                      ? "w-full" // active link: full underline
+                      : "w-0 group-hover:w-full" // inactive link: expand on hover
+                  }`}
+                ></span>
+              </a>
+            ))}
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="lg:hidden">
+          <div className="lg:hidden z-50">
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-gray-700 dark:text-white"
+              onClick={toggleMobileMenu}
+              className="inline-flex items-center justify-center p-2 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-colors"
+              aria-label="Toggle menu"
+              aria-expanded={isMobileMenuOpen}
             >
-              <Menu className="h-6 w-6" />
+              {isMobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden mt-4 px-4">
-          <ul className="flex flex-col space-y-3 bg-[#f2f5fb] dark:bg-[#1f2937] p-4 rounded-xl border border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-800 dark:text-white shadow">
-            {navLinks.map((link) => (
-              <li
-                key={link}
-                className={`hover:text-purple-500 transition ${
-                  link === "Blog" ? "text-fuchsia-600 font-semibold" : ""
-                }`}
-              >
-                <a href="#">{link}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <div
+          className="lg:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+          onClick={() => setIsMobileMenuOpen(false)}
+          role="button"
+          tabIndex={0}
+          aria-label="Close menu"
+        />
       )}
+
+      {/* Mobile Menu */}
+      <div
+        className={`lg:hidden fixed top-16 right-0 w-64 h-screen bg-gray-900/98 backdrop-blur-lg shadow-xl transform transition-transform duration-300 ease-in-out z-40 ${
+          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="px-4 py-6 space-y-1">
+          {navLinks.map((link: NavLink) => (
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={handleLinkClick}
+              className={`block px-4 py-3 text-base font-medium rounded-lg transition-all duration-300 ${
+                link.highlight
+                  ? "text-fuchsia-500 bg-fuchsia-500/10 font-semibold"
+                  : "text-gray-300 hover:text-white hover:bg-gray-800/50"
+              }`}
+            >
+              {link.name}
+            </a>
+          ))}
+        </div>
+      </div>
     </nav>
   );
 };

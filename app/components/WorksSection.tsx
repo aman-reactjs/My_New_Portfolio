@@ -1,74 +1,70 @@
 "use client";
 import React, { useState } from "react";
+import Image from "next/image";
 
 export default function WorksSection() {
-  const [hoveredProject, setHoveredProject] = useState(null);
+  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
 
   const projects = [
     {
       id: 1,
-      title: "Harigurus",
-      subtitle: "(Event Booking)",
+      title: "Blogs ",
+      subtitle: "(Everythingtalent.ai)",
       description:
         "HariGurus is a one-stop-shop for all Hindu religious, customs and traditional requirements. Built the complete site from scratch.",
       image: "/worked/myWork.png",
       tags: [
+        "#next.js",
         "#react.js",
-        "#express.js",
-        "#node.js",
-        "#swiper.js",
-        "#mongoDB",
-        "#mongoose",
+        "#tailwind.css",
+        "#typescript",
+        "#shadcn",
+        "#BG.IBELINK",
         "#css",
-        "#javascript",
         "#figma",
       ],
       position: "right",
+      link: "https://myblogs-website-3uyj.vercel.app/",
     },
     {
       id: 2,
-      title: "EazyGrad",
-      subtitle: "(EdTech Startup)",
+      title: "Portfolio",
+      subtitle: "(Aman Sharma Portfolio)",
       description:
         "Being a lead developer, revamped the site to a highly responsive, and interactive website. Created new features and pages. Worked as a team with product manager and ux designer.",
-      image: "/worked/TwentyProject.png",
-      tags: [
-        "#node.js",
-        "#express.js",
-        "#mongoDB",
-        "#mongoDBAtlas",
-        "#ejs",
-        "#swiper.js",
-      ],
+      image: "/worked/Portfolio_Old.png",
+      tags: ["#javscript", "#react.js", "#css", "#figma", "#hooks", "#redux"],
       position: "left",
+      link: "https://my-portfolio-ten-gray-82.vercel.app/",
     },
     {
-      id: 1,
-      title: "Harigurus",
-      subtitle: "(Event Booking)",
+      id: 3,
+      title: "Weather App",
+      subtitle: "(Tells current weather)",
       description:
         "HariGurus is a one-stop-shop for all Hindu religious, customs and traditional requirements. Built the complete site from scratch.",
-      image: "/worked/myWork.png",
+      image: "/worked/Weather_App.png",
       tags: [
         "#react.js",
-        "#express.js",
-        "#node.js",
-        "#swiper.js",
-        "#mongoDB",
-        "#mongoose",
-        "#css",
         "#javascript",
+        "#next.js",
+        "#tailwind.css",
+        "#typescript",
+        "#hooks",
+        "#redux",
+        "#html",
         "#figma",
       ],
       position: "right",
+      link: "https://weather-website-dusky-tau.vercel.app/",
     },
     {
       id: 4,
-      title: "EazyGrad",
-      subtitle: "(EdTech Startup)",
+      title: "Login Page",
+      subtitle: "(Initial Project)",
       description:
         "Being a lead developer, revamped the site to a highly responsive, and interactive website. Created new features and pages. Worked as a team with product manager and ux designer.",
-      image: "/worked/TwentyProject.png",
+      image: "/worked/Login_page.png",
       tags: [
         "#node.js",
         "#express.js",
@@ -78,14 +74,15 @@ export default function WorksSection() {
         "#swiper.js",
       ],
       position: "left",
+      link: "https://react-login-form-wheat.vercel.app/",
     },
     {
-      id: 1,
-      title: "Harigurus",
-      subtitle: "(Event Booking)",
+      id: 5,
+      title: "To_Do_List",
+      subtitle: "(First Project)",
       description:
         "HariGurus is a one-stop-shop for all Hindu religious, customs and traditional requirements. Built the complete site from scratch.",
-      image: "/worked/myWork.png",
+      image: "/worked/ToDo_List.png",
       tags: [
         "#react.js",
         "#express.js",
@@ -98,14 +95,15 @@ export default function WorksSection() {
         "#figma",
       ],
       position: "right",
+      link: "https://react-to-do-list-sandy-psi.vercel.app/",
     },
     {
       id: 6,
-      title: "EazyGrad",
-      subtitle: "(EdTech Startup)",
+      title: "Currency Converter",
+      subtitle: "(Convert Currency of Every Country)",
       description:
         "Being a lead developer, revamped the site to a highly responsive, and interactive website. Created new features and pages. Worked as a team with product manager and ux designer.",
-      image: "/worked/TwentyProject.png",
+      image: "/worked/Currency_converter.png",
       tags: [
         "#node.js",
         "#express.js",
@@ -115,11 +113,12 @@ export default function WorksSection() {
         "#swiper.js",
       ],
       position: "left",
+      link: "https://currency-converter-react-pearl.vercel.app/",
     },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 py-20 px-4">
+    <div className="min-h-screen bg-linear-to-br from-slate-50 to-blue-50 py-20 px-4">
       {/* Header */}
       <div className="text-center mb-20">
         <h2 className="inline-block text-5xl font-bold text-teal-600 border-4 border-teal-600 rounded-2xl px-12 py-4">
@@ -166,17 +165,21 @@ export default function WorksSection() {
 
                   {/* Screen Content */}
                   <div className="bg-white rounded-lg overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-[23rem]"
-                    />
+                    <a href={project.link} target="_blank">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        width={600}
+                        height={400}
+                        className="w-full h-92"
+                      />
+                    </a>
                   </div>
                 </div>
 
                 {/* Laptop Base */}
                 <div className="relative">
-                  <div className="h-5 bg-gradient-to-b from-gray-800 to-gray-700 rounded-b-xl" />
+                  <div className="h-5 bg-linear-to-b from-gray-800 to-gray-700 rounded-b-xl" />
                   <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gray-600 rounded-t-lg" />
                 </div>
 
