@@ -152,7 +152,7 @@ export default function Home() {
           <div className="flex flex-col-reverse lg:flex-row gap-28 justify-between items-left px-1 sm:px-12 lg:px-30 py-30">
             {/* LEFT TEXT SECTION */}
             <div className="w-full lg:w-120 flex flex-col justify-center text-center lg:text-left">
-              <h1 className="text-4cdbxl sm:text-4xl md:text-4xl font-black">
+              <h1 className="text-2xl md:text-4xl font-black">
                 Hi, I&#39;m Aman Sharma
               </h1>
 
@@ -161,11 +161,12 @@ export default function Home() {
               </h2>
 
               <p className="py-5 text-gray-300 leading-relaxed text-sm sm:text-base">
-                I am Aman Sharma, a passionate Front-End Developer with a keen
-                eye for creating responsive, user-friendly, and visually
-                appealing web applications. I specialize in HTML, CSS,
-                JavaScript, and React.js, ensuring seamless user experiences
-                with modern UI/UX principles.
+                I am a passionate Front-End Developer with a strong focus on
+                building responsive, user-friendly, and visually appealing web
+                applications. I specialize in creating clean, efficient, and
+                scalable interfaces using modern front-end technologies. I enjoy
+                transforming ideas into interactive digital experiences while
+                following best UI/UX practices.
               </p>
 
               {/* BUTTONS */}

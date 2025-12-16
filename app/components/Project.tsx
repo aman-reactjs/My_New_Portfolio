@@ -99,14 +99,7 @@ export default function Project() {
       description:
         "A fast and easy currency converter that converts between multiple currencies in real-time with a simple, user-friendly interface.",
       image: "/worked/Currency_converter.png",
-      tags: [
-        "#node.js",
-        "#express.js",
-        "#mongoDB",
-        "#mongoDBAtlas",
-        "#ejs",
-        "#swiper.js",
-      ],
+      tags: ["#html", "#css", "javascript"],
       link: "https://currency-converter-react-pearl.vercel.app/",
     },
   ];

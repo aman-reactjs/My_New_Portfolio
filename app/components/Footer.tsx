@@ -56,7 +56,7 @@ export default function AdvancedFooter() {
               {/* Resume Download Button */}
               <div className="flex justify-center pt-2">
                 <a href="/resume.pdf" download="Aman-Sharma-Resume.pdf">
-                  <Button className="group relative px-8 py-6 bg-linear-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 rounded-full font-semibold text-white shadow-lg hover:shadow-purple-500/50 transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
+                  <Button className="group relative px-8 py-6 bg-linear-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 rounded-lg font-semibold text-white shadow-lg hover:shadow-purple-500/50 transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
                     <svg
                       className="w-5 h-5"
                       fill="none"
@@ -177,9 +177,9 @@ export default function AdvancedFooter() {
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-1 sm:flex-none w-full sm:w-64 lg:w-80 px-4 sm:px-6 py-2.5 sm:py-3 bg-white/10 border border-white/20 rounded-full text-sm sm:text-base text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 backdrop-blur-sm"
+                  className="flex-1 sm:flex-none w-full sm:w-64 lg:w-80 px-4 sm:px-6 py-2.5 sm:py-3 bg-white/10 border border-gray/100 rounded-full text-sm sm:text-base text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 backdrop-blur-sm"
                 />
-                <button className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 bg-linear-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 rounded-full font-semibold text-sm sm:text-base transition-all shadow-lg hover:shadow-purple-500/50 whitespace-nowrap">
+                <button className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 bg-linear-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 rounded-lg font-semibold text-sm sm:text-base transition-all shadow-lg hover:shadow-purple-500/50 whitespace-nowrap">
                   Subscribe
                 </button>
               </div>

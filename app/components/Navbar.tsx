@@ -184,7 +184,7 @@ const Navbar: React.FC<{ openAboutPopup: () => void }> = ({
               key={link.name}
               href={link.ref}
               onClick={(e) => {
-                if (link.name === "About" || link.name === "Resume") {
+                if (link.name === "About") {
                   e.preventDefault();
 
                   // 1️⃣ Scroll to Home Section
