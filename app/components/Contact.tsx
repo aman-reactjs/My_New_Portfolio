@@ -41,7 +41,7 @@ export default function Contact() {
 
   return (
     <section id="contact">
-      <div className="min-h-screen bg-linear-to-br from-gray-50 via-purple-50 to-pink-50">
+      <div className=" bg-linear-to-br from-gray-50 via-purple-50 to-pink-50">
         {/* Animated Background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 left-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-40 animate-pulse"></div>
@@ -53,10 +53,7 @@ export default function Contact() {
           {/* Header */}
           <div className="text-center mb-16">
             <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-4">
-              Get In{" "}
-              <span className="bg-linear-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                Touch
-              </span>
+              Get In <span className=" text-cyan-600 bg-clip-text ">Touch</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Have a project in mind? Let&apos;s create something amazing
@@ -163,7 +160,7 @@ export default function Contact() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full sm:w-auto px-8 py-4 bg-linear-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-pink-700 focus:outline-none focus:ring-4 focus:ring-purple-500/50 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2 shadow-lg"
+                      className="w-full sm:w-auto px-8 py-4 bg-cyan-600 text-white font-semibold rounded-lg hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-500/50 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2 shadow-lg"
                     >
                       {isSubmitting ? (
                         <>

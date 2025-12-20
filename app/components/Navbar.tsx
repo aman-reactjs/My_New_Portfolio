@@ -81,7 +81,7 @@ const Navbar: React.FC<{ openAboutPopup: () => void }> = ({
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-0">
+      <div className="w-full px-4 sm:px-6 lg:px-8 z-0">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo Section */}
           <div className="shrink-0 z-50 ">

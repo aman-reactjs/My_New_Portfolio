@@ -30,16 +30,16 @@ export default function About({ onClose }: AboutProps) {
     <section id="about">
       <div
         className="
-          fixed -top-105 -left-53
+          fixed -top-110 -left-53
           bg-black backdrop-blur-sm
           z-999
           flex items-center justify-center
-          w-180 h-160 
+          w-180 h-230 
 
           md:absolute md:backdrop-blur-sm
-          md:-top-87 md:-left-100 md:w-321 md:h-215
+          md:-top-100 md:-left-100 md:w-321 md:h-215
 
-          lg:-top-110 lg:-left-48 lg:w-318 lg:h-155
+          lg:-top-110 lg:-left-53 lg:w-325 lg:h-150          
         "
       >
         {/* Popup Box */}

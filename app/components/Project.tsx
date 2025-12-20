@@ -107,7 +107,7 @@ export default function Project() {
   return (
     <section
       id="projects"
-      className="min-h-screen bg-linear-to-br from-gray-50 via-purple-50 to-pink-50 py-20 px-4"
+      className=" bg-linear-to-br from-gray-50 via-purple-50 to-pink-50 py-20 px-4"
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
