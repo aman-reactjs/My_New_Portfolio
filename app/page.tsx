@@ -49,7 +49,7 @@ export default function Home() {
 
   return (
     <section id="home">
-      <div className="relative min-h-screen bg-linear-to-br from-gray-900 via-gray-900 to-gray-900 overflow-hidden">
+      <div className="relative max-h-7x1 bg-linear-to-br from-gray-900 via-gray-900 to-gray-900 overflow-hidden">
         {/* Bubbles */}
         {bubbles.map((bubble) => (
           <div
@@ -69,9 +69,9 @@ export default function Home() {
         ))}
 
         {/* Content */}
-        <div className="relative mt-5 min-h-screen text-white py-5 ">
-          <Navbar openAboutPopup={() => setOpen(true)} />
-          <div className="w-12 h-100 absolute right-10 top-35">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 mt-5 text-white">
+          {/* <Navbar openAboutPopup={() => setOpen(true)} /> */}
+          <div className="w-12 h-100 absolute right-1 top-38">
             <div className=" hidden md:grid sm:grid gap-4 sm:gap-5 justify-center flex-wrap ">
               {/* Facebook */}
               <a
@@ -149,7 +149,7 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <div className="flex flex-col-reverse lg:flex-row gap-28 justify-between items-left px-1 sm:px-12 lg:px-30 py-30">
+          <div className="flex flex-col-reverse lg:flex-row gap-28 justify-between items-left px-1 sm:px-12 lg:px-13 py-20">
             {/* LEFT TEXT SECTION */}
             <div className="w-full lg:w-120 flex flex-col justify-center text-center lg:text-left">
               <h1 className="text-2xl md:text-4xl font-black">

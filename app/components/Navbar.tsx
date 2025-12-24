@@ -9,9 +9,12 @@ interface NavLink {
   ref: string;
 }
 
-const Navbar: React.FC<{ openAboutPopup: () => void }> = ({
-  openAboutPopup,
-}) => {
+interface NavbarProps {
+  openResumePopup: () => void;
+  openAboutPopup?: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ openResumePopup, openAboutPopup }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
   const [activeSection, setActiveSection] = useState("home");
@@ -61,8 +64,8 @@ const Navbar: React.FC<{ openAboutPopup: () => void }> = ({
     { name: "Home", ref: "#home" },
     { name: "Projects", ref: "#projects" },
     { name: "Contact", ref: "#contact" },
-    { name: "Resume", ref: "#footer" },
-    { name: "About", ref: "#about" },
+    { name: "Resume", ref: "#resume" },
+    { name: "Links", ref: "#footer" },
   ];
 
   // const handleLinkClick = (): void => {
@@ -100,35 +103,22 @@ const Navbar: React.FC<{ openAboutPopup: () => void }> = ({
           <div className="hidden lg:flex items-center space-x-1">
             {navLinks.map((link: NavLink) => (
               <a
-                // smooth={true}
-                // duration={600}
-                // onClick={handleLinkClick}
                 href={link.ref}
                 key={link.name}
                 onClick={(e) => {
-                  if (link.name === "About") {
+                  if (link.name === "Resume") {
                     e.preventDefault();
-                    setActiveSection("about");
-                    // 1️⃣ Scroll to Home Section
-                    const homeSection = document.querySelector("#home");
-                    homeSection?.scrollIntoView({ behavior: "smooth" });
-
-                    // 2️⃣ Popup open AFTER scroll ends
-                    setTimeout(() => {
-                      openAboutPopup();
-                    }, 600); // scrolling duration
+                    openResumePopup();
+                    return;
                   }
                 }}
-                // spy={true}
-                // offset={-70}
-
                 className={`px-4 py-2 text-sm font-medium transition-all duration-300 relative group 
-                   ${
-                     activeSection === link.ref.replace("#", "")
-                       ? "text-white cursor-default"
-                       : "text-gray-300 hover:text-purple-600"
-                   }
-                          `}
+    ${
+      activeSection === link.ref.replace("#", "")
+        ? "text-white cursor-default"
+        : "text-gray-300 hover:text-purple-600"
+    }
+  `}
               >
                 {link.name}
 
@@ -184,8 +174,10 @@ const Navbar: React.FC<{ openAboutPopup: () => void }> = ({
               key={link.name}
               href={link.ref}
               onClick={(e) => {
-                if (link.name === "About") {
+                if (link.name === "Resume") {
                   e.preventDefault();
+                  openResumePopup();
+                  setIsMobileMenuOpen(false);
 
                   // 1️⃣ Scroll to Home Section
                   const homeSection = document.querySelector("#home");
@@ -193,7 +185,7 @@ const Navbar: React.FC<{ openAboutPopup: () => void }> = ({
 
                   // 2️⃣ Popup open AFTER scroll ends
                   setTimeout(() => {
-                    openAboutPopup();
+                    openAboutPopup?.();
                   }, 600); // scrolling duration
                 }
               }}

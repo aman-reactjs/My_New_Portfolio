@@ -30,22 +30,23 @@ export default function About({ onClose }: AboutProps) {
     <section id="about">
       <div
         className="
-          fixed -top-110 -left-53
+          fixed -top-92 -left-55
           bg-black backdrop-blur-sm
           z-999
           flex items-center justify-center
-          w-180 h-230 
+          w-99 h-135 
+          rounded-3xl mx-5 px-0 border border-gray-200 shadow-lg
 
           md:absolute md:backdrop-blur-sm
-          md:-top-100 md:-left-100 md:w-321 md:h-215
+          md:-top-87 md:-left-100 md:w-190 md:h-130
 
-          lg:-top-110 lg:-left-53 lg:w-325 lg:h-150          
+          lg:-top-98 lg:-left-58 lg:w-325 lg:h-135          
         "
       >
         {/* Popup Box */}
         <div
           ref={popupRef}
-          className="text-white rounded-xl w-[85%] h-[85%] lg:p-5 md:p-8  overflow-y-auto flex gap-10 relative animate-slideUp z-1000"
+          className="text-white rounded-xl w-[90%] h-[98%] md:h-[85%] lg:p-5 md:p-5  overflow-y-auto flex gap-10 relative animate-slideUp z-1000"
         >
           {/* Close Button */}
           <button
@@ -56,7 +57,7 @@ export default function About({ onClose }: AboutProps) {
           </button>
 
           {/* Left Section */}
-          <div className="w-1/2 overflow-hidden">
+          <div className="w-2/2 lg:w-1/2 overflow-hidden">
             <h1 className="text-3xl font-bold text-cyan-400 mb-2">ABOUT ME</h1>
 
             <p className="text-gray-300 leading-5 my-4  sm:my-4">
